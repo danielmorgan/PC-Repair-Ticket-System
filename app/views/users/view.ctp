@@ -1,7 +1,7 @@
 <div class="users view">
 <h2><?php  __('User');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('ID'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['id']; ?>
 			&nbsp;
@@ -9,11 +9,6 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Username'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['username']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Password'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['password']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
@@ -40,11 +35,11 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php __('Related Tickets');?></h3>
-	<?php if (!empty($user['Ticket'])):?>
+	<h3><?php __('Assigned Tickets');?></h3>
+	<?php if (!empty($user['AssignedTicket'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
+		<th><?php __('ID'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Assigned To'); ?></th>
 		<th><?php __('State Id'); ?></th>
@@ -60,7 +55,7 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($user['Ticket'] as $ticket):
+		foreach ($user['AssignedTicket'] as $ticket):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';

@@ -1,7 +1,7 @@
 <div class="states view">
 <h2><?php  __('State');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('ID'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $state['State']['id']; ?>
 			&nbsp;
@@ -29,7 +29,7 @@
 	<?php if (!empty($state['Ticket'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
+		<th><?php __('ID'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Assigned To'); ?></th>
 		<th><?php __('State Id'); ?></th>
