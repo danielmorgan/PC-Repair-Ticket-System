@@ -29,6 +29,10 @@ class User extends AppModel {
 		'Ticket' => array(
 			'className' => 'Ticket',
 			'foreignKey' => 'user_id'
+		),
+		'AssignedTicket' => array(
+			'className' => 'Ticket',
+			'foreignKey' => 'assigned_to'
 		)
 	);
 
