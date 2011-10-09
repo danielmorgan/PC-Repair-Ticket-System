@@ -3,18 +3,79 @@
  * Generic CSS for CakePHP
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.app.webroot.css
  * @since         CakePHP(tm)
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
+ *//*
+Uploadify v2.1.0
+Release Date: August 24, 2009
+
+Copyright (c) 2009 Ronnie Garcia, Travis Nickels
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+
+.clear {
+	clear: both;
+}
+
+.uploadifyQueueItem {
+	font: 11px Verdana, Geneva, sans-serif;
+	border: 2px solid #E5E5E5;
+	background-color: #F5F5F5;
+	margin-top: 5px;
+	padding: 10px;
+	width: 350px;
+}
+.uploadifyError {
+	border: 2px solid #FBCBBC !important;
+	background-color: #FDE5DD !important;
+}
+.uploadifyQueueItem .cancel {
+	float: right;
+}
+.uploadifyProgress {
+	background-color: #FFFFFF;
+	border-top: 1px solid #808080;
+	border-left: 1px solid #808080;
+	border-right: 1px solid #C5C5C5;
+	border-bottom: 1px solid #C5C5C5;
+	margin-top: 10px;
+	width: 100%;
+}
+.uploadifyProgressBar {
+	background-color: #0099FF;
+	width: 1px;
+	height: 3px;
+}
+
+.poszero a.handle {
+background: url(images/error.png) no-repeat !important;
+}
 
 * {
 	margin:0;
@@ -75,25 +136,39 @@ ul, li {
 }
 
 #header{
-	padding: 10px 0 10px 20px;
+	padding: 10px 20px 3px;
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/logo.png') no-repeat left;
+	background: #003d4c url('../img/gears.icon.png') no-repeat left;
 	color: #fff;
-	padding: 0px 60px;
-}
-#header a {
-	text-decoration: none;
+	padding: 0px 30px;
+	float: left;
 }
 #header h1 a {
 	color: #fff;
 	background: #003d4c;
 	font-weight: normal;
+	text-decoration: none;
 }
 #header h1 a:hover {
 	color: #fff;
 	background: #003d4c;
+	text-decoration: underline;
+}
+#backToSite {
+	display: block;
+	float: right;
+	color: #fff;
+	font-weight: normal;
+}
+#backToSite a {
+	color: #b5dbff;
+	font-weight: normal;
+	text-decoration: none;
+}
+#backToSite a:hover {
+	color: #deefff;
 	text-decoration: underline;
 }
 #content{
@@ -218,7 +293,6 @@ dt {
 	font-weight: bold;
 	padding-left: 4px;
 	vertical-align: top;
-	width: 10em;
 }
 dd {
 	margin-left: 10em;
@@ -537,56 +611,59 @@ div.code-coverage-results span.result-good {
 	color: #0a0;
 }
 
-/** Elements **/
-#url-rewriting-warning {
-	display: none;
-}
 
 
 
 
 
 
+/* START CUSTOM STYLES */
 
-
-
-a#logo {
-	display: block;
+.attributeInput .input {
+	width: 40%;
 	float: left;
+	clear: none;
+	margin: 0 20px 10px 10px;
+	padding: 0;
+	marign: 0;
 }
 
-#adminMenu  {
-	margin: -12px 0 0 -40px;
-	float: left;
-	width: 400px;
-	height: 20px;
+.attributeInput .input input {
+	
 }
 
-#adminMenu li {
-	list-style: none;
-}
-
-#adminMenu li a {
+a.deleteAttribute {
 	float: left;
 	display: block;
-	color: #fff;
-	margin: 0 15px 0 0;
-	text-decoration: none;
-	font-weight:normal;
-    padding: 5px 15px;
-    background:#e6e49f;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
-    background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);
-    color:#333;
-    border:1px solid #aaac62;
-    -webkit-border-radius: 8px 8px 0 0;
-    -moz-border-radius: 8px 8px 0 0;
-    border-radius: 8px 8px 0 0;
-    text-decoration:none;
-    text-shadow: #fff 0px 1px 0px;
+	background: url(../img/cancel.png) no-repeat;
+	width: 16px;
+	height: 16px;
+	text-indent: -99999px;
+	top: 10px;
 }
 
-#adminMenu li a:hover {
-	background: #f0f09a;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
+.uploadedImage {
+	position: relative;
+	width: 215px;
+	float: left;
+	border: 1px solid #ddd;
+	clear: none;
+	margin: 0 10px 10px 0;
+}
+
+a.deleteImage {
+	display: block;
+	text-indent: -99999px;
+	background: url(../img/cancel.png) 7px 7px no-repeat #fff;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	opacity: 0.75;
+	padding: 10px;
+}
+
+a.deleteImage:hover {
+	opacity: 1;
 }
