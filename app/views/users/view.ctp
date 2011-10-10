@@ -40,44 +40,32 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('ID'); ?></th>
-		<th><?php __('User Id'); ?></th>
-		<th><?php __('Assigned To'); ?></th>
-		<th><?php __('State Id'); ?></th>
-		<th><?php __('Customer Id'); ?></th>
+		<th><?php __('Customer'); ?></th>
 		<th><?php __('Subject'); ?></th>
 		<th><?php __('Notes'); ?></th>
-		<th><?php __('Items'); ?></th>
 		<th><?php __('Created'); ?></th>
 		<th><?php __('Due'); ?></th>
-		<th><?php __('Modified'); ?></th>
-		<th><?php __('Closed'); ?></th>
+		<th><?php __('State Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($user['AssignedTicket'] as $ticket):
+		foreach ($tickets as $ticket):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $ticket['id'];?></td>
-			<td><?php echo $ticket['user_id'];?></td>
-			<td><?php echo $ticket['assigned_to'];?></td>
-			<td><?php echo $ticket['state_id'];?></td>
-			<td><?php echo $ticket['customer_id'];?></td>
-			<td><?php echo $ticket['subject'];?></td>
-			<td><?php echo $ticket['notes'];?></td>
-			<td><?php echo $ticket['items'];?></td>
-			<td><?php echo $ticket['created'];?></td>
-			<td><?php echo $ticket['due'];?></td>
-			<td><?php echo $ticket['modified'];?></td>
-			<td><?php echo $ticket['closed'];?></td>
+			<td><?php echo $ticket['Ticket']['id'];?></td>
+			<td><?php echo $this->Html->link($ticket['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?></td>
+			<td><?php echo $ticket['Ticket']['subject'];?></td>
+			<td><?php echo $ticket['Ticket']['notes'];?></td>
+			<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['created'])); ?>&nbsp;</td>
+			<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['due'])); ?>&nbsp;</td>
+			<td><?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'view', $ticket['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'tickets', 'action' => 'delete', $ticket['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $ticket['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['Ticket']['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

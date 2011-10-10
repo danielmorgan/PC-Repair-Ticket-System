@@ -18,6 +18,11 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('Invalid user', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->set('tickets', $this->User->Ticket->find('all',
+			array(
+				'conditions' => array('User.id' => $id)			
+			)
+		));
 		$this->set('user', $this->User->read(null, $id));
 	}
 
