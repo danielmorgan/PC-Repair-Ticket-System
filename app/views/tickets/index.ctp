@@ -3,17 +3,12 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('assigned_to');?></th>
-			<th><?php echo $this->Paginator->sort('state_id');?></th>
 			<th><?php echo $this->Paginator->sort('customer_id');?></th>
 			<th><?php echo $this->Paginator->sort('subject');?></th>
-			<th><?php echo $this->Paginator->sort('notes');?></th>
-			<th><?php echo $this->Paginator->sort('items');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('due');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th><?php echo $this->Paginator->sort('closed');?></th>
+			<th><?php echo $this->Paginator->sort('state_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -25,27 +20,17 @@
 	<tr class="<?php echo $state; ?>">
 		<td><?php echo $ticket['Ticket']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($ticket['User']['username'], array('controller' => 'users', 'action' => 'view', $ticket['User']['id'])); ?>
-		</td>
-		<td>
 			<?php echo $this->Html->link($ticket['AssignedTo']['username'], array('controller' => 'users', 'action' => 'view', $ticket['AssignedTo']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($ticket['State']['name'], array('controller' => 'states', 'action' => 'view', $ticket['State']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($ticket['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?>
 		</td>
 		<td><?php echo $ticket['Ticket']['subject']; ?>&nbsp;</td>
-		<td><?php echo $ticket['Ticket']['notes']; ?>&nbsp;</td>
-		<td><?php echo $ticket['Ticket']['items']; ?>&nbsp;</td>
-		<td><?php echo $ticket['Ticket']['created']; ?>&nbsp;</td>
-		<td><?php echo $ticket['Ticket']['due']; ?>&nbsp;</td>
-		<td><?php echo $ticket['Ticket']['modified']; ?>&nbsp;</td>
-		<td><?php echo $ticket['Ticket']['closed']; ?>&nbsp;</td>
+		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['created'])); ?>&nbsp;</td>
+		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['due'])); ?>&nbsp;</td>
+		<td><?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?></td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $ticket['Ticket']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $ticket['Ticket']['id'])); ?>
+			<?php echo $this->Html->link(__('View', true), array('action' => 'edit', $ticket['Ticket']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $ticket['Ticket']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $ticket['Ticket']['id'])); ?>
 		</td>
 	</tr>

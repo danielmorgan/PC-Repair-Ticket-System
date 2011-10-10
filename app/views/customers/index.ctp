@@ -6,9 +6,6 @@
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('phone');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
-			<th><?php echo $this->Paginator->sort('address');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -21,12 +18,9 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $customer['Customer']['id']; ?>&nbsp;</td>
-		<td><?php echo $customer['Customer']['name']; ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($customer['Customer']['name'], array('action' => 'view', $customer['Customer']['id'])); ?>&nbsp;</td>
 		<td><?php echo $customer['Customer']['phone']; ?>&nbsp;</td>
 		<td><?php echo $customer['Customer']['email']; ?>&nbsp;</td>
-		<td><?php echo $customer['Customer']['address']; ?>&nbsp;</td>
-		<td><?php echo $customer['Customer']['created']; ?>&nbsp;</td>
-		<td><?php echo $customer['Customer']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $customer['Customer']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $customer['Customer']['id'])); ?>

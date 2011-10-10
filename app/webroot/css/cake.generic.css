@@ -590,3 +590,20 @@ a#logo {
 	background: #f0f09a;
     background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
 }
+
+.state {
+	padding: 3px 6px;
+	color: #fff;
+}
+
+.state.New {
+	background: #DB520D;
+}
+
+.state.Open {
+	background: #35B51F;
+}
+
+.state.Resolved {
+	background: #666;
+}
