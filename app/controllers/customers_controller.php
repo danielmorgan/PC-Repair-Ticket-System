@@ -63,5 +63,24 @@ class CustomersController extends AppController {
 		$this->Session->setFlash(__('Customer was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function ajax($query = null) {
+		$this->autoRender = false;
+		
+		$suggestions = $this->Customer->find('all', array(
+			'conditions' => array('Customer.name LIKE' => "%".$this->params['url']['query']."%"),
+			'fields' => array('Customer.name')
+		));
+		foreach($suggestions as $suggestion) {
+			$results[] = $suggestion['Customer']['name'];
+		}
+		
+		$json = array(
+			'query' => $this->params['url']['query'],
+			'suggestions' => $results
+		);
+		return json_encode($json);
+	}
+
 }
 ?>
