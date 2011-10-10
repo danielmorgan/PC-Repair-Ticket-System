@@ -56,7 +56,7 @@ class TicketsController extends AppController {
 			$this->data = $this->Ticket->read(null, $id);
 		}
 		$users = $this->Ticket->User->find('list');
-		$assignedTos = $this->Ticket->AssignedTo->find('list');
+		$assignedTos = $this->Ticket->User->find('list', array('fields' => array('username')));
 		$states = $this->Ticket->State->find('list');
 		$customers = $this->Ticket->Customer->find('list');
 		$this->set(compact('users', 'assignedTos', 'states', 'customers'));

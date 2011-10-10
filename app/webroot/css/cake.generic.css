@@ -607,3 +607,15 @@ a#logo {
 .state.Resolved {
 	background: #666;
 }
+
+fieldset.form {
+	width: 45%;
+	float: left;
+	margin: 0 1%;
+}
+
+fieldset.view {
+	width: 45%;
+	float: left;
+	margin: 0 1%;
+}
