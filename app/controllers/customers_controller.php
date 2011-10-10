@@ -13,6 +13,11 @@ class CustomersController extends AppController {
 			$this->Session->setFlash(__('Invalid customer', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->set('tickets', $this->Customer->Ticket->find('all',
+			array(
+				'conditions' => array('Customer.id' => $id)			
+			)
+		));
 		$this->set('customer', $this->Customer->read(null, $id));
 	}
 
