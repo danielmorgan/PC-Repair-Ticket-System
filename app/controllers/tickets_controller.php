@@ -16,14 +16,6 @@ class TicketsController extends AppController {
 		$this->set('tickets', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid ticket', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('ticket', $this->Ticket->read(null, $id));
-	}
-
 	function add() {
 		if (!empty($this->data)) {
 			$this->Ticket->Customer->create();
