@@ -20,7 +20,7 @@ class UsersController extends AppController {
 		}
 		$this->set('tickets', $this->User->Ticket->find('all',
 			array(
-				'conditions' => array('User.id' => $id)			
+				'conditions' => array('AssignedTo.id' => $id)			
 			)
 		));
 		$this->set('user', $this->User->read(null, $id));

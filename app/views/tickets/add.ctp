@@ -5,6 +5,7 @@
 		<fieldset class="customer form">
 			<legend><?php __('Customer'); ?></legend>
 			<?php
+				echo $this->Form->input('Customer.id', array('type' => 'hidden'));
 				echo $this->Form->input('Customer.name');
 				echo $this->Form->input('Customer.email');
 				echo $this->Form->input('Customer.phone');

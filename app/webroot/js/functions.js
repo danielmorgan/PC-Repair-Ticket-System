@@ -1,4 +1,30 @@
 $(document).ready(function() {
-	options = { serviceUrl:'/customers/ajax' };
-	a = $('#CustomerName').autocomplete(options);	
+
+	options = {
+		serviceUrl: '/customers/ajax_names',
+		onSelect: function (value){
+			$.get(
+				"/customers/ajax_contact_details",
+				"query="+value+"",
+				function(response){
+					$.each(response, function(){
+						$('#CustomerId').val(this.id);
+						$('#CustomerEmail').val(this.email).prop('disabled', true);
+						$('#CustomerPhone').val(this.phone).prop('disabled', true);
+						$('#CustomerAddress').val(this.address).prop('disabled', true);
+					});
+					$('input#CustomerName').blur(function(){
+						if (this.value !== value) {
+							$('#CustomerName').val('');
+							$('#CustomerEmail').val('').prop('disabled', false);
+							$('#CustomerPhone').val('').prop('disabled', false);
+							$('#CustomerAddress').val('').prop('disabled', false);
+						}
+					});
+				},
+				"json"
+			);
+		}
+	};
+	a = $('#CustomerName').autocomplete(options);
 });
