@@ -2,10 +2,10 @@
 class Ticket extends AppModel {
 	var $name = 'Ticket';
 	var $validate = array(
-		'user_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+		'subject' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'You must enter a subject',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
