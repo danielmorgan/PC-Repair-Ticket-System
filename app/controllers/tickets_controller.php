@@ -9,7 +9,8 @@ class TicketsController extends AppController {
 			'Ticket' => array(
 				'order' => array(
 					'Ticket.state_id' => 'asc',
-					'Ticket.due' => 'asc'
+					'Ticket.due' => 'asc',
+					'Ticket.created' => 'asc'
 				)
 			)
 		);
@@ -18,13 +19,20 @@ class TicketsController extends AppController {
 
 	function add() {
 		if (!empty($this->data)) {
-			$this->Ticket->Customer->create();
-			$this->Ticket->Customer->save($this->data);
+		
+			if ($this->data['Customer']['id'] == '') {
+				$this->Ticket->Customer->create();
+				$this->Ticket->Customer->save($this->data);
+				$customer_id = $this->Ticket->Customer->getInsertID();
+			} else {
+				$customer_id = $this->data['Customer']['id'];
+			}
+			
 			$this->Ticket->create();
 			$this->Ticket->set(array(
 				'user_id' => $this->Auth->user('id'),
 				'state_id' => 1,
-				'customer_id' => $this->Ticket->Customer->getInsertID()
+				'customer_id' => $customer_id
 			));
 			if ($this->Ticket->save($this->data)) {
 				$this->Session->setFlash(__('The ticket has been saved', true));

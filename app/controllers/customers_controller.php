@@ -64,20 +64,40 @@ class CustomersController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function ajax($query = null) {
+	function ajax_names($query = null) {
 		$this->autoRender = false;
 		
 		$suggestions = $this->Customer->find('all', array(
 			'conditions' => array('Customer.name LIKE' => "%".$this->params['url']['query']."%"),
-			'fields' => array('Customer.name')
+			'fields' => array('Customer.name', 'Customer.email', 'Customer.phone', 'Customer.address')
 		));
 		foreach($suggestions as $suggestion) {
-			$results[] = $suggestion['Customer']['name'];
+			$names[] = $suggestion['Customer']['name'];
 		}
 		
 		$json = array(
 			'query' => $this->params['url']['query'],
-			'suggestions' => $results
+			'suggestions' => $names
+		);
+		return json_encode($json);
+	}
+	
+	function ajax_contact_details($query = null) {
+		$this->autoRender = false;
+		
+		$contact_details = $this->Customer->find('first', array(
+			'conditions' => array('Customer.name' => $this->params['url']['query']),
+			'fields' => array('Customer.email', 'Customer.phone', 'Customer.address'),
+			'recursive' => 0
+		));
+		
+		$json = array(
+			'details' => array(
+				'id' => $contact_details['Customer']['id'],
+				'email' => $contact_details['Customer']['email'],
+				'phone' => $contact_details['Customer']['phone'],
+				'address' => $contact_details['Customer']['address']
+			)
 		);
 		return json_encode($json);
 	}
