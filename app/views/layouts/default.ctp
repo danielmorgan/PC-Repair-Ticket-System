@@ -6,12 +6,16 @@
 		<?php echo $title_for_layout; ?>
 		<?php __('| PC Repair Ticket System'); ?>
 	</title>
+	<script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAA3g7P-kkUbLNHDkesUsfErxRUcGRmHVUSsqSZ5X8ZIRGotTybUhS-WlR8kGTQcbtY6AggHdXzY9HHUg"></script>
+	<script type="text/javascript">
+		google.load("jquery", "1.6.1");
+	</script>
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('admin_menu');
-	?>	
-	<?php
+		echo $this->Html->css('admin_menu');		
+		echo $this->Javascript->link('jquery.autocomplete.js');
+		echo $this->Javascript->link('functions.js');
 		echo $scripts_for_layout;
 	?>
 </head>
