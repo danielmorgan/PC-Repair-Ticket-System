@@ -5,6 +5,14 @@ class TicketsController extends AppController {
 
 	function index() {
 		$this->Ticket->recursive = 2;
+		$this->paginate = array(
+			'Ticket' => array(
+				'order' => array(
+					'Ticket.state_id' => 'asc',
+					'Ticket.due' => 'asc'
+				)
+			)
+		);
 		$this->set('tickets', $this->paginate());
 	}
 
