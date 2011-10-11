@@ -53,21 +53,27 @@ class TicketsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			if ($this->data['Ticket']['state_id'] == 3) {
+				$this->Ticket->set(array(
+					'closed' => date('Y-m-d H:i:s')
+				));
+			}
 			if ($this->Ticket->save($this->data)) {
 				$this->Session->setFlash(__('The ticket has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->Session->setFlash(__('The ticket could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Ticket->read(null, $id);
+			$ticket = $this->Ticket->findById($id);
 		}
 		$users = $this->Ticket->User->find('list');
 		$assignedTos = $this->Ticket->User->find('list', array('fields' => array('username')));
 		$states = $this->Ticket->State->find('list');
 		$customers = $this->Ticket->Customer->find('list');
-		$this->set(compact('users', 'assignedTos', 'states', 'customers'));
+		$this->set(compact('users', 'assignedTos', 'states', 'customers', 'ticket'));
 	}
 
 	function delete($id = null) {
