@@ -32,6 +32,11 @@
 			<fieldset>
 				<legend><?php __('Metadata'); ?></legend>
 				<dl><?php $i = 0; $class = ' class="altrow"';?>
+					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Assigned To'); ?></dt>
+					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+						<?php echo $this->Html->link($ticket['AssignedTo']['username'], array('controller' => 'users', 'action' => 'view', $ticket['AssignedTo']['id'])); ?>
+						&nbsp;
+					</dd>
 					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 						<?php echo date('jS M Y, H:ia', strtotime($ticket['Ticket']['created'])); ?>
@@ -50,6 +55,7 @@
 					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('State'); ?></dt>
 					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 						<?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?>
+						<?php if (strtotime(date('Y-m-d H:i:s')) > strtotime($ticket['Ticket']['due']) && $ticket['State']['name'] !== 'Resolved') { echo '<span class="state Overdue">Overdue!</span>'; } ?>
 						&nbsp;
 					</dd>
 					<?php if ($ticket['State']['name'] == 'Resolved') { ?>

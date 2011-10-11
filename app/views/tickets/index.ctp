@@ -15,9 +15,11 @@
 	$i = 0;
 	foreach ($tickets as $ticket):
 		$class = null;
-		$state = $ticket['State']['name'];
+		if (strtotime(date('Y-m-d H:i:s')) > strtotime($ticket['Ticket']['due']) && $ticket['State']['name'] !== 'Resolved') {
+			$class = ' class="overdue"';
+		}
 	?>
-	<tr class="<?php echo $state; ?>">
+	<tr<?php echo $class; ?>>
 		<td><?php echo $ticket['Ticket']['id']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($ticket['AssignedTo']['username'], array('controller' => 'users', 'action' => 'view', $ticket['AssignedTo']['id'])); ?>
@@ -36,7 +38,10 @@
 				}
 			?>&nbsp;
 		</td>
-		<td><?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?></td>
+		<td>
+			<?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?>
+			<?php if (strtotime(date('Y-m-d H:i:s')) > strtotime($ticket['Ticket']['due']) && $ticket['State']['name'] !== 'Resolved') { echo '<span class="state Overdue">Overdue!</span>'; } ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'edit', $ticket['Ticket']['id'])); ?>
 		</td>
