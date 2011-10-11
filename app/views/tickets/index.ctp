@@ -28,7 +28,7 @@
 		<td>
 			<?php echo $this->Html->link($ticket['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?>
 		</td>
-		<td><?php echo $ticket['Ticket']['subject']; ?>&nbsp;</td>
+		<td class="subject"><?php echo $ticket['Ticket']['subject']; ?>&nbsp;</td>
 		<td class="balanceDue">
 			<?php
 				setlocale(LC_MONETARY, 'en_GB');
