@@ -688,6 +688,6 @@ tr.overdue td {
 	color: #111;
 }
 
-td.balanceDue {
+td.subject {
 	font-weight: bold;
 }
