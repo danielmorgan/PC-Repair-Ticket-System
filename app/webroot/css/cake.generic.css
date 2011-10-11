@@ -744,6 +744,17 @@ td.subject {
 	font-weight: bold;
 }
 
+.customerLink {
+	text-align: center;
+	padding: 0;
+	margin: 8px 5px 0 0;
+}
+
+.customerLink a {
+	font-size: 12px;
+	font-weight: normal;
+}
+
 
 
 
