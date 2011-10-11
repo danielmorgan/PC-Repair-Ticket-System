@@ -77,6 +77,19 @@
 						echo $this->Form->input('Ticket.subject', array('disabled' => true));
 						echo $this->Form->input('Ticket.notes', array('disabled' => true));
 						echo $this->Form->input('Ticket.items', array('disabled' => true));
+						?>
+						<div id="amountInputs">
+							<div class="input text required amount">
+								<label for="TicketAmountOwed">Amount Owed</label>
+								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_owed]" type="text" value="<?php echo $ticket['Ticket']['amount_owed']; ?>" maxlength="19" id="TicketAmountOwed" disabled />
+							</div>
+							<div class="input text required amount">
+								<label for="TicketAmountPaid">Amount Paid</label>
+								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_paid]" type="text" value="<?php echo $ticket['Ticket']['amount_paid']; ?>" maxlength="19" id="TicketAmountPaid" disabled />
+							</div>
+							<div class="clear"></div>
+						</div>
+						<?php
 						echo $this->Form->input('Ticket.assigned_to', array('disabled' => true));
 						echo $this->Form->input('Ticket.due', array('default' => date('Y-M-D', mktime()+259200), 'disabled' => true));
 						echo $this->Form->input('Ticket.state_id');
@@ -84,6 +97,21 @@
 						echo $this->Form->input('Ticket.subject');
 						echo $this->Form->input('Ticket.notes');
 						echo $this->Form->input('Ticket.items');
+						?>						
+						<div id="amountInputs">
+							<div class="input text required amount">
+								<label for="TicketAmountOwed">Price</label>
+								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_owed]" type="text" value="<?php echo $ticket['Ticket']['amount_owed']; ?>" maxlength="19" id="TicketAmountOwed" />
+							</div>
+							<div class="input text required amount">
+								<label for="TicketAmountPaid">Amount Paid</label>
+								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_paid]" type="text" value="<?php echo $ticket['Ticket']['amount_paid']; ?>" maxlength="19" id="TicketAmountPaid" />
+							</div>
+							<?php $amount_due = $ticket['Ticket']['amount_owed'] - $ticket['Ticket']['amount_paid']; ?>
+							<div id="amountDue">Balance Due:<br /><span class="currencySymbol">&pound;</span><span class="amount"><?php echo number_format($amount_due, 2); ?></span></div>
+							<div class="clear"></div>
+						</div>
+						<?php
 						echo $this->Form->input('Ticket.assigned_to');
 						echo $this->Form->input('Ticket.due', array('default' => date('Y-M-D', mktime()+259200)));
 						echo $this->Form->input('Ticket.state_id');
@@ -99,7 +127,7 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-
 		<li><?php echo $this->Html->link(__('< List Tickets', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $ticket['Ticket']['id']), null, sprintf(__('Are you sure you want to delete #%s? You will not be able to recover it!', true), $ticket['Ticket']['id'])); ?> </li>
 	</ul>
 </div>

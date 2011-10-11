@@ -67,6 +67,7 @@ class TicketsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Ticket->read(null, $id);
+			$this->recursive = 2;
 			$ticket = $this->Ticket->findById($id);
 		}
 		$users = $this->Ticket->User->find('list');
