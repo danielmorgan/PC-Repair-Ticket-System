@@ -21,6 +21,58 @@
 	padding:0;
 }
 
+@media all and (max-width: 1360px) {
+  body {
+    font-size: 80% !important;
+  }
+
+	.currencySymbol {
+		font-size: 22px !important;
+	}
+
+	.input.amount {
+		margin: 0 0 0 10px !important;
+	}
+}
+
+@media all and (max-width: 1260px) {
+	.col_l {
+		float: none !important;
+		clear: both !important;
+		width: 100% !important;
+		margin: 0 !important;
+	}
+	.col_r {
+		float: none !important;
+		clear: both !important;
+		width: 100% !important;
+		margin: 0 !important;
+	}
+}
+
+@media all and (max-width: 675px) {
+	div.form,
+	div.index,
+	div.view {
+		float: none !important;
+		clear: both !important;
+		width: 100% !important;
+		padding:10px 0 !important;		
+		border: 0 !important;
+	}
+	div.actions {
+		float: none !important;
+		clear: both !important;
+		width: 100% !important;
+		padding: 10px 0 !important;
+	}
+	#adminMenu  {
+		margin: 0 auto !important;
+		float: none !important;
+		clear: both !important;
+	}
+}
+
 /** General Style Info **/
 body {
 	background: #003d4c;
@@ -557,7 +609,7 @@ a#logo {
 #adminMenu  {
 	margin: -12px 0 0 -40px;
 	float: left;
-	width: 400px;
+	width: 331px;
 	height: 20px;
 }
 
@@ -622,7 +674,7 @@ a#logo {
 .col_l {
 	float: left;
 	width: 47%;
-	margin: 0 20px 0 0;
+	margin: 0 40px 0 0;
 }
 
 .col_r {
@@ -667,7 +719,7 @@ tr.overdue td {
 #amountInputs {
 	margin: 10px 25px;
 	padding: 10px 0 5px;
-	background: #f0f0f0;
+	background: #f4f4f4;
 }
 
 #amountDue {
@@ -690,4 +742,32 @@ tr.overdue td {
 
 td.subject {
 	font-weight: bold;
+}
+
+
+
+
+/* Changes */
+
+#changes {
+	padding: 0;
+	margin: 30px 0 0 0;
+}
+
+.change {
+	border: 1px solid #ddd;
+	padding: 0;
+	margin: 0 0 1em;
+}
+
+.change .author {
+	font-size: 12px;
+	color: #777;
+	text-align: right;
+	background: #f4f4f4;
+	padding: 5px 10px;
+}
+
+.change .content {
+	padding: 1em;
 }

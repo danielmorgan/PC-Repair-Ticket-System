@@ -1,10 +1,11 @@
 <?php
-class User extends AppModel {
-	var $name = 'User';
+class Change extends AppModel {
+	var $name = 'Change';
+	var $displayField = 'change';
 	var $validate = array(
-		'username' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'ticket_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -12,7 +13,17 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'password' => array(
+		'user_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'change' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -25,20 +36,21 @@ class User extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasMany = array(
+	var $belongsTo = array(
 		'Ticket' => array(
 			'className' => 'Ticket',
-			'foreignKey' => 'user_id'
+			'foreignKey' => 'ticket_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		),
-		'AssignedTicket' => array(
-			'className' => 'Ticket',
-			'foreignKey' => 'assigned_to'
-		),
-		'Change' => array(
-			'className' => 'Change',
-			'foreignKey' => 'user_id'
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
-
 }
 ?>

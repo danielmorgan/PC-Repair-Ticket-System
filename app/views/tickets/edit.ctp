@@ -1,8 +1,6 @@
 <div class="tickets form">
-<?php echo $this->Form->create('Ticket');?>
 	<fieldset>
 		<legend><?php __('Ticket ID: '.$ticket['Ticket']['id']); ?></legend>
-
 		<div class="col_l">
 			<fieldset>
 				<legend><?php __('Customer'); ?></legend>
@@ -67,11 +65,45 @@
 					<?php } ?>
 				</dl>
 			</fieldset>
+			<div id="changes">
+				<h3>Changes/Comments</h3>
+				<div id="newChange">
+					<fieldset>
+						<legend>New comment</legend>
+						<?php echo $this->Form->create('Change', array('action' => 'add'));?>
+						<?php
+						echo $this->Form->input('Change.ticket_id', array('value' => $ticket['Ticket']['id'], 'type' => 'hidden'));
+						echo $this->Form->input('Change.change', array('label' => 'Comments', 'type' => 'text'));
+						?>
+						<?php echo $this->Form->end(__('Add Comment', true));?>
+					</fieldset>
+				</div>
+				<?php foreach ($ticket['Change'] as $change): ?>
+					<div class="change">
+						<div class="author">
+							<?php
+								echo 'Posted by '.
+								$this->Html->link(
+									$assignedTos[$change['user_id']],
+									array('controller' => 'users', 'action' => 'view', $change['user_id']
+									)
+								).
+								' &#8212; ';
+								echo $this->Time->timeAgoInWords($change['created']);
+							?>
+						</div>
+						<div class="content">
+							<?php echo $change['change']; ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
 		</div>
 		
 		<div class="col_r">
 			<fieldset>
 				<legend><?php __('Ticket'); ?></legend>
+				<?php echo $this->Form->create('Ticket');?>
 				<?php				
 					if ($ticket['State']['name'] == 'Resolved') {
 						echo $this->Form->input('Ticket.subject', array('disabled' => true));
@@ -87,6 +119,8 @@
 								<label for="TicketAmountPaid">Amount Paid</label>
 								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_paid]" type="text" value="<?php echo $ticket['Ticket']['amount_paid']; ?>" maxlength="19" id="TicketAmountPaid" disabled />
 							</div>
+							<?php $amount_due = $ticket['Ticket']['amount_owed'] - $ticket['Ticket']['amount_paid']; ?>
+							<div id="amountDue">Balance Due:<br /><span class="currencySymbol">&pound;</span><span class="amount"><?php echo number_format($amount_due, 2); ?></span></div>
 							<div class="clear"></div>
 						</div>
 						<?php
@@ -117,12 +151,13 @@
 						echo $this->Form->input('Ticket.state_id');
 					}
 				?>
+				<?php echo $this->Form->end(__('Save Ticket', true));?>
 			</fieldset>
 		</div>
 		
 		<div class="clear"></div>
 	</fieldset>
-<?php echo $this->Form->end(__('Save Ticket', true));?>
+
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>

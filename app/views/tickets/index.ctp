@@ -34,7 +34,7 @@
 				setlocale(LC_MONETARY, 'en_GB');
 				$amount_due = $ticket['Ticket']['amount_owed'] - $ticket['Ticket']['amount_paid'];
 				echo '&pound;'.number_format($amount_due, 2);
-			?>&nbsp;
+			?>
 		</td>
 		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['created'])); ?>&nbsp;</td>
 		<td>
@@ -44,7 +44,7 @@
 				} else {
 					echo date('jS M Y', strtotime($ticket['Ticket']['due']));
 				}
-			?>&nbsp;
+			?>
 		</td>
 		<td>
 			<?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?>

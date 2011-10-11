@@ -95,5 +95,13 @@ class Ticket extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	var $hasMany = array(
+		'Change' => array(
+			'className' => 'Change',
+			'foreignKey' => 'ticket_id',
+			'order' => 'created desc'
+		)
+	);
 }
 ?>
