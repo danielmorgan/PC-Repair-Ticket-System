@@ -23,6 +23,20 @@
 					echo $this->Form->input('Ticket.subject');
 					echo $this->Form->input('Ticket.notes');
 					echo $this->Form->input('Ticket.items');
+				?>
+				<div id="amountInputs">
+					<div class="input text required amount">
+						<label for="TicketAmountOwed">Amount Owed</label>
+						<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_owed]" type="text" value="0" maxlength="19" id="TicketAmountOwed" />
+					</div>
+					<div class="input text required amount">
+						<label for="TicketAmountPaid">Amount Paid</label>
+						<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_paid]" type="text" value="0" maxlength="19" id="TicketAmountPaid" />
+					</div>
+					<div id="amountDue">Balance Due:<br /><span class="currencySymbol">&pound;</span><span class="amount"><?php echo number_format(0, 2); ?></span></div>
+					<div class="clear"></div>
+				</div>
+				<?php
 					echo $this->Form->input('Ticket.assigned_to');
 					echo $this->Form->input('Ticket.due', array('default' => date('Y-M-D', mktime()+259200)));
 				?>

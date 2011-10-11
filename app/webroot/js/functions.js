@@ -1,5 +1,8 @@
 $(document).ready(function() {
-
+	
+	/*
+	* Customer autofill
+	*/
 	options = {
 		serviceUrl: '/customers/ajax_names',
 		onSelect: function (value){
@@ -27,4 +30,16 @@ $(document).ready(function() {
 		}
 	};
 	a = $('#CustomerName').autocomplete(options);
+	
+	
+	/*
+	* Customer autofill
+	*/
+	$('#amountInputs input').keyup(function() {
+		price = $('#TicketAmountOwed').val();
+		paid = $('#TicketAmountPaid').val();
+		balance = (price - paid).toFixed(2);
+		$('#amountDue .amount').html(balance);
+	});
+	
 });

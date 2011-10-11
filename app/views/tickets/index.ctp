@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('assigned_to');?></th>
 			<th><?php echo $this->Paginator->sort('customer_id');?></th>
 			<th><?php echo $this->Paginator->sort('subject');?></th>
+			<th><?php echo __('Balance Due');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('due');?></th>
 			<th><?php echo $this->Paginator->sort('state_id');?></th>
@@ -28,6 +29,13 @@
 			<?php echo $this->Html->link($ticket['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?>
 		</td>
 		<td><?php echo $ticket['Ticket']['subject']; ?>&nbsp;</td>
+		<td class="balanceDue">
+			<?php
+				setlocale(LC_MONETARY, 'en_GB');
+				$amount_due = $ticket['Ticket']['amount_owed'] - $ticket['Ticket']['amount_paid'];
+				echo '&pound;'.number_format($amount_due, 2);
+			?>&nbsp;
+		</td>
 		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['created'])); ?>&nbsp;</td>
 		<td>
 			<?php

@@ -644,3 +644,50 @@ a#logo {
 tr.overdue td {
 	background: #FFF0F0 !important;
 }
+
+.currencySymbol {
+	font-size: 26px;
+	color: #444;
+	font-weight: bold;
+	float: left;
+}
+
+.input.amount {
+	width: 40%;
+	float: left;
+	clear: none;
+	margin: 0 0 0 20px;
+}
+
+.input.amount input {
+	width: 79%;
+	margin: 0 0 0 5px;
+}
+
+#amountInputs {
+	margin: 10px 25px;
+	padding: 10px 0 5px;
+	background: #f0f0f0;
+}
+
+#amountDue {
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	clear: both;
+}
+
+#amountDue .currencySymbol {
+	float: none;
+	color: #111;
+}
+
+#amountDue .amount {
+	font-weight: bold;
+	font-size: 26px;
+	color: #111;
+}
+
+td.balanceDue {
+	font-weight: bold;
+}
