@@ -26,6 +26,9 @@
 						&nbsp;
 					</dd>
 				</dl>
+				<div class="customerLink">
+					<?php echo $this->Html->link('View all tickets for this customer', array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?>
+				</div>
 			</fieldset>
 			<fieldset>
 				<legend><?php __('Metadata'); ?></legend>
@@ -99,6 +102,8 @@
 				<?php endforeach; ?>
 			</div>
 		</div>
+		
+		
 		
 		<div class="col_r">
 			<fieldset>

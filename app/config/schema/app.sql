@@ -1,10 +1,22 @@
-#App sql generated on: 2011-10-11 03:54:09 : 1318298049
+#App sql generated on: 2011-10-11 15:48:28 : 1318340908
 
+DROP TABLE IF EXISTS `changes`;
 DROP TABLE IF EXISTS `customers`;
 DROP TABLE IF EXISTS `states`;
 DROP TABLE IF EXISTS `tickets`;
 DROP TABLE IF EXISTS `users`;
 
+
+CREATE TABLE `changes` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`ticket_id` int(11) NOT NULL,
+	`user_id` int(11) NOT NULL,
+	`change` text CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+	`created` datetime DEFAULT NULL,	PRIMARY KEY  (`id`),
+	KEY `ticket_id` (`ticket_id`),
+	KEY `user_id` (`user_id`))	DEFAULT CHARSET=latin1,
+	COLLATE=latin1_swedish_ci,
+	ENGINE=InnoDB;
 
 CREATE TABLE `customers` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
