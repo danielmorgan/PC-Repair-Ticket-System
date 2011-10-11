@@ -16,8 +16,8 @@
 	$i = 0;
 	foreach ($tickets as $ticket):
 		$class = null;
-		if (strtotime(date('Y-m-d H:i:s')) > strtotime($ticket['Ticket']['due']) && $ticket['State']['name'] !== 'Resolved') {
-			$class = ' class="overdue"';
+		if ($i++ % 2 == 0) {
+			$class = ' class="altrow"';
 		}
 	?>
 	<tr<?php echo $class; ?>>
