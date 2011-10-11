@@ -1,5 +1,5 @@
 <?php 
-/* App schema generated on: 2011-10-10 10:08:18 : 1318234098*/
+/* App schema generated on: 2011-10-11 03:49:04 : 1318297744*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -12,13 +12,13 @@ class AppSchema extends CakeSchema {
 
 	var $customers = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
-		'name' => array('type' => 'string', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'name' => array('type' => 'string', 'null' => true, 'default' => NULL, 'key' => 'unique', 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'phone' => array('type' => 'string', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'email' => array('type' => 'string', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'address' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'name' => array('column' => 'name', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'InnoDB')
 	);
 	var $states = array(
@@ -36,6 +36,8 @@ class AppSchema extends CakeSchema {
 		'subject' => array('type' => 'string', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'notes' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'items' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'amount_owed' => array('type' => 'float', 'null' => false, 'default' => NULL, 'length' => '16,2'),
+		'amount_paid' => array('type' => 'float', 'null' => false, 'default' => NULL, 'length' => '16,2'),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'due' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
