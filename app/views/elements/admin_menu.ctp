@@ -9,4 +9,3 @@
 		<?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?>
 	</li>
 </ul>
-<div class="clear"></div>

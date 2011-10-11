@@ -27,7 +27,15 @@
 		</td>
 		<td><?php echo $ticket['Ticket']['subject']; ?>&nbsp;</td>
 		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['created'])); ?>&nbsp;</td>
-		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['due'])); ?>&nbsp;</td>
+		<td>
+			<?php
+				if ($ticket['State']['name'] == 'Resolved') {
+					echo '<span class="resolvedDue">'.date('jS M Y', strtotime($ticket['Ticket']['due'])).'</span>';
+				} else {
+					echo date('jS M Y', strtotime($ticket['Ticket']['due']));
+				}
+			?>&nbsp;
+		</td>
 		<td><?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'edit', $ticket['Ticket']['id'])); ?>
