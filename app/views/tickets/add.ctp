@@ -1,4 +1,4 @@
-<div class="tickets form">
+<div class="tickets add form">
 <?php echo $this->Form->create('Ticket');?>
 	<fieldset>
 		<legend><?php __('Add Ticket'); ?></legend>
@@ -26,7 +26,7 @@
 				?>
 				<div id="amountInputs">
 					<div class="input text required amount">
-						<label for="TicketAmountOwed">Amount Owed</label>
+						<label for="TicketAmountOwed">Price</label>
 						<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_owed]" type="text" value="0" maxlength="19" id="TicketAmountOwed" />
 					</div>
 					<div class="input text required amount">
@@ -39,12 +39,14 @@
 				<?php
 					echo $this->Form->input('Ticket.assigned_to');
 					echo $this->Form->input('Ticket.due', array('default' => date('Y-M-D', mktime()+259200)));
-				?>
+				?>				
+				<?php echo $this->Form->end(__('Add Ticket', true));?>
 			</fieldset>
 		</div>
 		
+		<div class="clear"></div>
+		
 	</fieldset>
-<?php echo $this->Form->end(__('Add Ticket', true));?>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>

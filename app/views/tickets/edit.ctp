@@ -1,6 +1,7 @@
 <div class="tickets form">
 	<fieldset>
 		<legend><?php __('Ticket ID: '.$ticket['Ticket']['id']); ?></legend>
+		
 		<div class="col_l">
 			<fieldset>
 				<legend><?php __('Customer'); ?></legend>
@@ -102,7 +103,6 @@
 				<?php endforeach; ?>
 			</div>
 		</div>
-		
 		
 		
 		<div class="col_r">
