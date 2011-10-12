@@ -38,7 +38,7 @@
 				</div>
 				<?php
 					echo $this->Form->input('Ticket.assigned_to');
-					echo $this->Form->input('Ticket.due', array('default' => date('Y-M-D', mktime()+259200)));
+					echo $this->DatePicker->picker('Ticket.due', array('default' => date('Y-M-D', mktime()+259200)));
 				?>				
 				<?php echo $this->Form->end(__('Add Ticket', true));?>
 			</fieldset>

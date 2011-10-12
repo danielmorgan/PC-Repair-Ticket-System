@@ -13,8 +13,11 @@
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('admin_menu');		
+		echo $this->Html->css('datePicker');
 		echo $this->Javascript->link('jquery.autocomplete.js');
+		echo $this->Javascript->link('date.js');
+		echo $this->Javascript->link('jquery.datePicker.js');
+		echo $this->Javascript->link('cake.datePicker.js');
 		echo $this->Javascript->link('functions.js');
 		echo $scripts_for_layout;
 	?>
