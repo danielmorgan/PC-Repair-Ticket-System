@@ -1,4 +1,4 @@
-#App sql generated on: 2011-10-11 15:48:28 : 1318340908
+#App sql generated on: 2011-10-13 08:03:58 : 1318485838
 
 DROP TABLE IF EXISTS `changes`;
 DROP TABLE IF EXISTS `customers`;
@@ -45,6 +45,7 @@ CREATE TABLE `tickets` (
 	`subject` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
 	`notes` text CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
 	`items` text CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+	`credentials` text CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
 	`amount_owed` float(16,2) NOT NULL,
 	`amount_paid` float(16,2) NOT NULL,
 	`created` datetime DEFAULT NULL,
