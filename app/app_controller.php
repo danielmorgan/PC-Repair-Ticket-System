@@ -5,8 +5,12 @@ class AppController extends Controller {
 
     function beforeFilter() {
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'logout');
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'tickets', 'action' => 'index');
     }
+	
+	function beforeRender() {
+		$this->set('loggedin', $this->Auth->user());
+	}
 }
 ?>
