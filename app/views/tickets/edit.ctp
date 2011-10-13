@@ -34,6 +34,11 @@
 			<fieldset>
 				<legend><?php __('Metadata'); ?></legend>
 				<dl><?php $i = 0; $class = ' class="altrow"';?>
+					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created By'); ?></dt>
+					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+						<?php echo $this->Html->link($ticket['User']['username'], array('controller' => 'users', 'action' => 'view', $ticket['User']['id'])); ?>
+						&nbsp;
+					</dd>
 					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Assigned To'); ?></dt>
 					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 						<?php echo $this->Html->link($ticket['AssignedTo']['username'], array('controller' => 'users', 'action' => 'view', $ticket['AssignedTo']['id'])); ?>
@@ -122,7 +127,7 @@
 							</div>
 							<div class="input text required amount">
 								<label for="TicketAmountPaid">Amount Paid</label>
-								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_paid]" type="text" value="<?php echo $ticket['Ticket']['amount_paid']; ?>" maxlength="19" id="TicketAmountPaid" disabled />
+								<span class="currencySymbol">&pound;</span><input name="data[Ticket][amount_paid]" type="text" value="<?php echo $ticket['Ticket']['amount_paid']; ?>" maxlength="19" id="TicketAmountPaid" />
 							</div>
 							<?php $amount_due = $ticket['Ticket']['amount_owed'] - $ticket['Ticket']['amount_paid']; ?>
 							<div id="amountDue">Balance Due:<br /><span class="currencySymbol">&pound;</span><span class="amount"><?php echo number_format($amount_due, 2); ?></span></div>

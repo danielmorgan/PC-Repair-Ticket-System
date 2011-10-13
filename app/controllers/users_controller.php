@@ -70,11 +70,11 @@ class UsersController extends AppController {
 	}
 	
 	function login() {
-	
 	}
 	
 	function logout() {
-	
+		$this->Session->setFlash('Good-Bye');
+		$this->redirect($this->Auth->logout());
 	}
 	
 }

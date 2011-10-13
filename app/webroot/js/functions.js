@@ -42,4 +42,15 @@ $(document).ready(function() {
 		$('#amountDue .amount').html(balance);
 	});
 	
+	
+	/*
+	* User controls dropdown
+	*/
+	$('#user').hover(function() {
+		$('#user ul li ul').show();
+		$('#user').css('background', '#2E6F80');
+	}, function() {
+		$('#user ul li ul').hide();
+		$('#user').css('background', '#1F6173');
+	});
 });

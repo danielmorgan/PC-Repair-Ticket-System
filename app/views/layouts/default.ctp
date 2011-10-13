@@ -30,6 +30,21 @@
 		<div id="nav">
 			<?php echo $this->element('admin_menu'); ?>
 		</div>
+		<?php if(isset($loggedin)) { ?>
+		<div id="user">
+			<ul>
+				<li class="username">
+					<?php echo $this->Html->link($loggedin['User']['username'], array('controller' => 'users', 'action' => 'view', $loggedin['User']['id'])); ?>
+					<ul>
+						<li><?php echo $this->Html->link('My Tickets', array('controller' => 'users', 'action' => 'view', $loggedin['User']['id'])); ?></li>
+						<li><?php echo $this->Html->link('Settings', array('controller' => 'users', 'action' => 'edit', $loggedin['User']['id'])); ?></li>
+						<li><?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<?php } ?>
+		<div class="clear"></div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 
