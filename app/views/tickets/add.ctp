@@ -21,8 +21,9 @@
 				<legend><?php __('Ticket'); ?></legend>
 				<?php
 					echo $this->Form->input('Ticket.subject');
+					echo $this->Form->input('Ticket.items', array('label' => 'Items (eg. charger, bag, mouse)'));
+					echo $this->Form->input('Ticket.credentials', array('label' => 'Credentials (eg. usernames, passwords, network settings)'));
 					echo $this->Form->input('Ticket.notes');
-					echo $this->Form->input('Ticket.items');
 				?>
 				<div id="amountInputs">
 					<div class="input text required amount">
