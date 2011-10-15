@@ -776,6 +776,7 @@ td.subject {
 #user li {
 	list-style: none;
 	text-align: left;
+	background: url('../img/dropdown-arrow.png') right center no-repeat
 }
 
 #user ul li ul {
