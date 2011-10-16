@@ -12,5 +12,6 @@ class AppController extends Controller {
 	function beforeRender() {
 		$this->set('loggedin', $this->Auth->user());
 	}
+	
 }
 ?>
