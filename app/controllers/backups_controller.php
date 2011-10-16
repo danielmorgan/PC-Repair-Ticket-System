@@ -4,11 +4,6 @@ class BackupsController extends AppController {
 	var $name = 'Backups';
 	var $uses = null;
 	
-	function beforeFilter() {
-		parent::beforeFilter(); 
-		$this->Auth->allow(array('*'));
-	}
-	
 	function index() {
 		$dirname = ROOT . DS . 'app' . DS . 'backups' . DS;
 		$dh = opendir($dirname);

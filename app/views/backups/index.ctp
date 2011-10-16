@@ -1,5 +1,6 @@
 <div class="backups index">
 	<h2><?php __('Database Backups');?></h2>
+	<p style="margin: -10px 0 15px;">Backups run via cron job once a day, but you can also create backups manually with the button to the left.</p>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th>Backup</th>
