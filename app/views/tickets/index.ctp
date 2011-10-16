@@ -7,7 +7,6 @@
 			<th><?php echo $this->Paginator->sort('customer_id');?></th>
 			<th><?php echo $this->Paginator->sort('subject');?></th>
 			<th><?php echo __('Balance Due');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('due');?></th>
 			<th><?php echo $this->Paginator->sort('state_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -36,7 +35,6 @@
 				echo '&pound;'.number_format($amount_due, 2);
 			?>
 		</td>
-		<td><?php echo date('jS M Y', strtotime($ticket['Ticket']['created'])); ?>&nbsp;</td>
 		<td>
 			<?php
 				if ($ticket['State']['name'] == 'Resolved') {
