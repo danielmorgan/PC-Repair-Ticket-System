@@ -48,7 +48,16 @@
 		</td>
 		<td>
 			<?php echo '<span class="state '.$ticket['State']['name'].'">'.$ticket['State']['name'].'</span>'; ?>
-			<?php if (strtotime(date('Y-m-d H:i:s')) > strtotime($ticket['Ticket']['due']) && $ticket['State']['name'] !== 'Resolved') { echo '<span class="state Overdue">Overdue!</span>'; } ?>
+			<?php
+				if ($ticket['State']['name'] !== 'Resolved') {
+					if (strtotime(date('Y-m-d')) == strtotime($ticket['Ticket']['due'])) {
+						echo '<span class="state Overdue">Due Today</span>';
+					}
+					if (strtotime(date('Y-m-d')) > strtotime($ticket['Ticket']['due'])) {
+						echo '<span class="state Overdue">Overdue!</span>';
+					}
+				}
+			?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'edit', $ticket['Ticket']['id'])); ?>
