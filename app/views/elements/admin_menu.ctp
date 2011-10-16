@@ -8,4 +8,7 @@
 	<li>
 		<?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?>
 	</li>
+	<li>
+		<?php echo $this->Html->link('Database Backups', array('controller' => 'backups', 'action' => 'index')); ?>
+	</li>
 </ul>
