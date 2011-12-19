@@ -650,8 +650,12 @@ a#logo {
 
 .state.Overdue {
 	background: #D62522;
-	font-weight: bold;
-	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 10px;
+	padding: 2px 3px;
+	position: relative;
+	top: -1px;
+	opacity: 0.5;
 }
 
 .autocomplete-w1 { background:url('..img/shadow.png') no-repeat bottom right; position:absolute; top:0px; left:0px; margin:8px 0 0 6px; /* IE6 fix: */ _background:none; _margin:0; }
@@ -733,17 +737,6 @@ td.subject {
 	font-weight: bold;
 }
 
-.customerLink {
-	text-align: center;
-	padding: 0;
-	margin: 8px 5px 0 0;
-}
-
-.customerLink a {
-	font-size: 12px;
-	font-weight: normal;
-}
-
 #header {
 	float: left;
 	margin: 5px 0 0 0; 
@@ -799,6 +792,31 @@ td.subject {
 
 #user ul li ul a {
 	color: #003D4C;
+}
+
+#customerActions {
+	display: block;
+	margin: 10px auto -5px;
+	text-align: center;
+	background: #f6f6f6;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+}
+
+#customerActions a {
+	margin: 0 15px 0 0;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+#customerActions a:hover {
+	text-decoration: underline;
+}
+
+#customerActions a img {
+	margin: 0 5px 0 0;
+	position: relative;
+	top: 3px;
 }
 
 

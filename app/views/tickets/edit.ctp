@@ -2,6 +2,7 @@
 	<fieldset>
 		<legend><?php __('Ticket ID: '.$ticket['Ticket']['id']); ?></legend>
 		
+		
 		<div class="col_l">
 			<fieldset>
 				<legend><?php __('Customer'); ?></legend>
@@ -11,14 +12,14 @@
 						<?php echo $ticket['Customer']['name']; ?>
 						&nbsp;
 					</dd>
-					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Phone'); ?></dt>
-					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-						<?php echo $ticket['Customer']['phone']; ?>
-						&nbsp;
-					</dd>
 					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
 					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 						<?php echo $ticket['Customer']['email']; ?>
+						&nbsp;
+					</dd>
+					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Phone'); ?></dt>
+					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+						<?php echo $ticket['Customer']['phone']; ?>
 						&nbsp;
 					</dd>
 					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Address'); ?></dt>
@@ -26,10 +27,26 @@
 						<?php echo $ticket['Customer']['address']; ?>
 						&nbsp;
 					</dd>
+					<div id="customerActions">
+						<?php
+							echo $this->Html->link(
+								$this->Html->image('view.png', array('title' => 'View all Tickets for this Customer', 'alt' => 'view')).'View Customer', 
+								array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id']), 
+								array('escape' => false)
+							);
+							echo $this->Html->link(
+								$this->Html->image('edit.png', array('title' => 'Edit Customer', 'alt' => 'edit')).'Edit Customer Details', 
+								array('controller' => 'customers', 'action' => 'edit', $ticket['Customer']['id']), 
+								array('escape' => false)
+							);
+							echo $this->Html->link(
+								$this->Html->image('switch.png', array('title' => 'Change Customer', 'alt' => 'switch')).'Change Customer', 
+								array('controller' => 'customers', 'action' => 'change', $ticket['Ticket']['id']), 
+								array('escape' => false)
+							);
+						?>
+					</div>
 				</dl>
-				<div class="customerLink">
-					<?php echo $this->Html->link('View all tickets for this customer', array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?>
-				</div>
 			</fieldset>
 			<fieldset>
 				<legend><?php __('Metadata'); ?></legend>
