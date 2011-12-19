@@ -21,8 +21,8 @@
 				<legend><?php __('Ticket'); ?></legend>
 				<?php
 					echo $this->Form->input('Ticket.subject');
-					echo $this->Form->input('Ticket.items', array('label' => 'Items (eg. charger, bag, mouse)'));
-					echo $this->Form->input('Ticket.credentials', array('label' => 'Credentials (eg. usernames, passwords, network settings)'));
+					echo $this->Form->input('Ticket.items', array('type' => 'text', 'label' => 'Items Left'));
+					echo $this->Form->input('Ticket.credentials', array('type' => 'text', 'label' => 'Credentials'));
 					echo $this->Form->input('Ticket.notes');
 				?>
 				<div id="amountInputs">
@@ -40,6 +40,7 @@
 				<?php
 					echo $this->Form->input('Ticket.assigned_to');
 					echo $this->DatePicker->picker('Ticket.due', array('default' => date('Y-M-D', mktime()+259200)));
+					echo $this->Form->input('Ticket.state');
 				?>				
 				<?php echo $this->Form->end(__('Add Ticket', true));?>
 			</fieldset>

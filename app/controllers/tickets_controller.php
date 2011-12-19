@@ -4,7 +4,7 @@ class TicketsController extends AppController {
 	var $name = 'Tickets';
 
 	function index() {
-		$this->Ticket->recursive = 2;
+		$this->Ticket->recursive = 1;
 		$this->paginate = array(
 			'Ticket' => array(
 				'order' => array(
@@ -89,7 +89,7 @@ class TicketsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Ticket->read(null, $id);
-			$this->recursive = 2;
+			$this->recursive = 1;
 			$ticket = $this->Ticket->find('first', array(
 				'conditions' => array('Ticket.id' => $id)
 			));
