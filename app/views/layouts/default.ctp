@@ -45,6 +45,14 @@
 		</div>
 		<?php } ?>
 		<div class="clear"></div>
+		<div id="search">
+			
+			<form action="/customers/search" id="CustomerSearchForm" method="post" accept-charset="utf-8">
+				<div id="searchInput"><input name="data[Customer][q]" type="text" id="CustomerQ"></div>
+				<div id="searchSubmit"><input type="submit" value="Search"></div>
+			</form>
+			<div class="clear"></div>
+		</div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 

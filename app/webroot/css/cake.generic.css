@@ -850,3 +850,48 @@ td.subject {
 	margin-bottom: 1em;
 	padding: 0;
 }
+
+
+/* Search */
+
+#search {
+	background: #ebf1f4;
+	border-bottom: 1px solid #bdcdd6;
+}
+
+#search form {
+	width: 400px;
+	margin: 0 auto;
+}
+
+#search #searchInput {
+	float: left;
+	width: 280px;
+	margin: 0;
+}
+
+#searchSubmit {
+	float: left;
+	width: 86px;
+	margin: 0;
+}
+
+#search #searchInput input {
+	font-size: 100%;
+	padding: 3px;
+	color: 999;
+}
+
+
+
+#left {
+	width: 100px;
+	float: left;
+	background: green;
+}
+
+#right {
+	width: 200px;
+	float: right;
+	background: red;
+}
