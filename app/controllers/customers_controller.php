@@ -101,6 +101,13 @@ class CustomersController extends AppController {
 		);
 		return json_encode($json);
 	}
+	
+	function search() { 
+		$results = $this->paginate('Customer', array(
+			'Customer.name LIKE' => '%'.$this->data['Customer']['q'].'%'
+		));
+		$this->set('results', $results);
+    } 
 
 }
 ?>

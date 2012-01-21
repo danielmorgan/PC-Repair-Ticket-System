@@ -2,6 +2,7 @@
 class Customer extends AppModel {
 	var $name = 'Customer';
 	var $displayField = 'name';
+	
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(
