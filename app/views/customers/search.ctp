@@ -12,7 +12,7 @@
 	$i = 0;
 	foreach ($results as $customer):
 	?>
-	<tr>
+	<tr class="searchResultCustomer">
 		<td><?php echo $customer['Customer']['id']; ?>&nbsp;</td>
 		<td><?php echo $this->Html->link($customer['Customer']['name'], array('action' => 'view', $customer['Customer']['id'])); ?>&nbsp;</td>
 		<td><?php echo $customer['Customer']['phone']; ?>&nbsp;</td>
@@ -31,14 +31,13 @@
 		
 		
 		<td colspan="5">
-			<table style="font-size: 12px !important; padding: 0 0 0 20px;">
+			<table class="searchResultTickets">
 			
 			
 				<?php
 				foreach ($customer['Ticket'] as $ticket):
 				?>				
 				<tr>
-					<td><?php echo $ticket['id']; ?>&nbsp;</td>
 					<td class="subject"><?php echo $ticket['subject']; ?>&nbsp;</td>
 					<td><?php echo $ticket['notes']; ?>&nbsp;</td>
 					<td class="balanceDue">
@@ -54,7 +53,7 @@
 				</tr>
 				<?php endforeach; ?>
 				
-			</table>
+			</table><br />
 		</td>
 		
 		

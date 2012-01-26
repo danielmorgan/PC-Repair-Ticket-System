@@ -102,11 +102,20 @@ class CustomersController extends AppController {
 		return json_encode($json);
 	}
 	
-	function search() { 
-		$results = $this->paginate('Customer', array(
-			'Customer.name LIKE' => '%'.$this->data['Customer']['q'].'%'
-		));
-		$this->set('results', $results);
+	function search() {
+		if ($this->data['Customer']['q'] == '') {
+			$this->Session->setFlash(__('No search query submitted', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		if (!empty($this->data)) {
+			$results = $this->paginate('Customer', array(
+				'Customer.name LIKE' => '%'.$this->data['Customer']['q'].'%'
+			));
+			$this->set('results', $results);
+		} else {
+			$this->Session->setFlash(__('No search query submitted', true));
+			$this->redirect(array('action' => 'index'));
+		}
     } 
 
 }
