@@ -882,16 +882,12 @@ td.subject {
 	color: 999;
 }
 
-
-
-#left {
-	width: 100px;
-	float: left;
-	background: green;
+.searchResultTickets {
+	font-size: 12px !important;
+	padding: 0 0 0 30px;
 }
 
-#right {
-	width: 200px;
-	float: right;
-	background: red;
+.searchResultCustomer td {
+	background: #e7eff7 !important;
+	border-top: 1px solid #a1b7d1;
 }
