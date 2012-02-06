@@ -1,7 +1,7 @@
 <?php
 class AppController extends Controller {
     var $components = array('Auth', 'Session');
-    var $helpers = array('Html', 'Time', 'Form', 'Session', 'Javascript', 'DatePicker');
+    var $helpers = array('Html', 'Time', 'Form', 'Session', 'Javascript', 'DatePicker', 'Text');
 
     function beforeFilter() {
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');

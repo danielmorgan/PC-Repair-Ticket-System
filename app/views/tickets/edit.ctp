@@ -119,7 +119,7 @@
 							?>
 						</div>
 						<div class="content">
-							<?php echo $change['change']; ?>
+							<?php echo $this->Text->autoLinkUrls($change['change']); ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
