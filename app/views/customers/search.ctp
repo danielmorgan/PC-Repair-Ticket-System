@@ -48,7 +48,7 @@
 						?>
 					</td>
 					<td class="actions">
-						<?php echo $this->Html->link(__('View', true), array('action' => 'edit', $ticket['id'])); ?>
+						<?php echo $this->Html->link(__('View', true), array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
