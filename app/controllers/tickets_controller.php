@@ -9,7 +9,7 @@ class TicketsController extends AppController {
 			'Ticket' => array(
 				'order' => array(
 					'Ticket.state_id' => 'asc',
-					'Ticket.due' => 'asc',
+					'Ticket.due' => 'desc',
 					'Ticket.created' => 'asc'
 				)
 			)
