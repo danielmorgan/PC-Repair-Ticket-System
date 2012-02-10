@@ -6,7 +6,7 @@
 			<th><?php echo $this->Paginator->sort('assigned_to');?></th>
 			<th><?php echo $this->Paginator->sort('customer_id');?></th>
 			<th><?php echo $this->Paginator->sort('subject');?></th>
-			<th><?php echo __('Balance Due');?></th>
+			<th><?php echo $this->Paginator->sort('balance_due');?></th>
 			<th><?php echo $this->Paginator->sort('due');?></th>
 			<th><?php echo $this->Paginator->sort('state_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -31,8 +31,7 @@
 		<td class="balanceDue">
 			<?php
 				setlocale(LC_MONETARY, 'en_GB');
-				$amount_due = $ticket['Ticket']['amount_owed'] - $ticket['Ticket']['amount_paid'];
-				echo '&pound;'.number_format($amount_due, 2);
+				echo '&pound;'.number_format($ticket['Ticket']['balance_due'], 2);
 			?>
 		</td>
 		<td>
