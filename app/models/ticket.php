@@ -103,5 +103,9 @@ class Ticket extends AppModel {
 			'order' => 'created desc'
 		)
 	);
+	
+	var $virtualFields = array(
+		'balance_due' => 'amount_owed - amount_paid'
+	);
 }
 ?>
