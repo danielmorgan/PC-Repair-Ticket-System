@@ -56,7 +56,7 @@ class TicketsController extends AppController {
 		if (!empty($this->data)) {
 		
 			// Set closed date if ticket set to resolved
-			if ($this->data['Ticket']['state_id'] == 3) {
+			if ($this->data['Ticket']['state_id'] == 4) {
 				$this->Ticket->set(array(
 					'closed' => date('Y-m-d H:i:s')
 				));

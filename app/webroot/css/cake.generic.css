@@ -648,6 +648,10 @@ a#logo {
 	background: #666;
 }
 
+.state.Closed {
+	background: #1B96BA;
+}
+
 .state.Overdue {
 	background: #D62522;
 	font-weight: normal;
