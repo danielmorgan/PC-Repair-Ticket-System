@@ -1,15 +1,16 @@
-<div class="tickets index">
-	<h2><?php __('Tickets');?></h2>
+<div class="tickets index full-width">
+	<h2 class="left"><?php __('Tickets');?></h2>
+    <span id="new-ticket"><?php echo $this->Html->link(__('+ New Ticket', true), array('action' => 'add')); ?></span>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('assigned_to');?></th>
-			<th><?php echo $this->Paginator->sort('customer_id');?></th>
-			<th><?php echo $this->Paginator->sort('subject');?></th>
-			<th><?php echo $this->Paginator->sort('balance_due');?></th>
-			<th><?php echo $this->Paginator->sort('due');?></th>
-			<th><?php echo $this->Paginator->sort('state_id');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('assigned_to');?></th>
+		<th><?php echo $this->Paginator->sort('customer_id');?></th>
+		<th><?php echo $this->Paginator->sort('subject');?></th>
+		<th><?php echo $this->Paginator->sort('balance_due');?></th>
+		<th><?php echo $this->Paginator->sort('due');?></th>
+		<th><?php echo $this->Paginator->sort('state_id');?></th>
+		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -75,10 +76,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('+ New Ticket', true), array('action' => 'add')); ?></li>
-	</ul>
 </div>

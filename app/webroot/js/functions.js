@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	/*
 	* Customer autofill
 	*/
@@ -30,8 +30,8 @@ $(document).ready(function() {
 		}
 	};
 	a = $('#CustomerName').autocomplete(options);
-	
-	
+
+
 	/*
 	* Customer autofill
 	*/
@@ -41,8 +41,8 @@ $(document).ready(function() {
 		balance = (price - paid).toFixed(2);
 		$('#amountDue .amount').html(balance);
 	});
-	
-	
+
+
 	/*
 	* User controls dropdown
 	*/
@@ -53,4 +53,21 @@ $(document).ready(function() {
 		$('#user ul li ul').hide();
 		$('#user').css('background', '#1F6173');
 	});
+
+
+    /*
+    * Links on <tr> elements
+    */
+    $(function($) {
+        $('.index tr').addClass('clickable').click( function() {
+            window.location = $(this).find('.actions a').attr('href');
+        }).find('a').hover( function() {
+            $(this).parents('tr').unbind('click');
+        }, function() {
+            $(this).parents('tr').click( function() {
+                window.location = $(this).find('.actions a').attr('href');;
+            });
+        });
+    });
+
 });

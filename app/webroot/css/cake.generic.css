@@ -57,7 +57,7 @@
 		float: none !important;
 		clear: both !important;
 		width: 100% !important;
-		padding:10px 0 !important;		
+		padding:10px 0 !important;
 		border: 0 !important;
 	}
 	div.actions {
@@ -169,6 +169,12 @@ div.view {
 	width:76%;
 	border-left:1px solid #666;
 	padding:10px 2%;
+}
+div.full-width {
+    width: 100%;
+    float: none;
+    border: 0;
+    padding: 10px;
 }
 div.actions {
 	float:left;
@@ -743,7 +749,7 @@ td.subject {
 
 #header {
 	float: left;
-	margin: 5px 0 0 0; 
+	margin: 5px 0 0 0;
 	padding: 5px 0 3px 20px;
 	width: 291px;
 }
@@ -895,3 +901,14 @@ td.subject {
 	background: #e7eff7 !important;
 	border-top: 1px solid #a1b7d1;
 }
+
+.left { float: left; }
+.right { float: right; }
+
+#new-ticket {
+    display: inline-block;
+    margin: 6px 0 0 15px;
+}
+
+.index tr.clickable { cursor: pointer; }
+.index tr.clickable:hover { background: #ebf1f4; }
