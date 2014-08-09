@@ -12,7 +12,7 @@
 	$i = 0;
 	foreach ($results as $customer):
 	?>
-	<tr class="searchResultCustomer">
+	<tr data-href="<?php echo $this->Html->url(array("action" => "view", $customer['Customer']['id'])); ?>" class="searchResultCustomer">
 		<td><?php echo $customer['Customer']['id']; ?>&nbsp;</td>
 		<td><?php echo $this->Html->link($customer['Customer']['name'], array('action' => 'view', $customer['Customer']['id'])); ?>&nbsp;</td>
 		<td><?php echo $customer['Customer']['phone']; ?>&nbsp;</td>
@@ -23,21 +23,15 @@
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $customer['Customer']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $customer['Customer']['id'])); ?>
 		</td>
 	</tr>
-	
+
 	<tr>
-		
-		
-		
-		
-		
 		<td colspan="5">
 			<table class="searchResultTickets">
-			
-			
+
 				<?php
 				foreach ($customer['Ticket'] as $ticket):
-				?>				
-				<tr>
+				?>
+				<tr data-href="<?php echo $this->Html->url(array('controller' => 'tickets', 'action' => 'edit', $ticket['id'])); ?>">
 					<td class="subject"><?php echo $ticket['subject']; ?>&nbsp;</td>
 					<td><?php echo $ticket['notes']; ?>&nbsp;</td>
 					<td class="balanceDue">
@@ -52,15 +46,9 @@
 					</td>
 				</tr>
 				<?php endforeach; ?>
-				
+
 			</table><br />
 		</td>
-		
-		
-		
-		
-		
-		
 	</tr>
 <?php endforeach; ?>
 	</table>

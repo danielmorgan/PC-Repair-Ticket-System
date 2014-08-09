@@ -14,7 +14,7 @@
 			$class = ' class="altrow"';
 		}
 	?>
-	<tr<?php echo $class;?>>
+	<tr data-href="<?php echo $this->Html->url(array('action' => 'edit', $state['State']['id'])); ?>"<?php echo $class;?>>
 		<td><?php echo $state['State']['id']; ?>&nbsp;</td>
 		<td><?php echo $state['State']['name']; ?>&nbsp;</td>
 		<td class="actions">

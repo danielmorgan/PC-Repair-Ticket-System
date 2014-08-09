@@ -20,7 +20,7 @@
 			$class = ' class="altrow"';
 		}
 	?>
-	<tr<?php echo $class; ?>>
+	<tr data-href="<?php echo $this->Html->url(array('action' => 'edit', $ticket['Ticket']['id'])); ?>"<?php echo $class; ?>>
 		<td><?php echo $ticket['Ticket']['id']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($ticket['AssignedTo']['username'], array('controller' => 'users', 'action' => 'view', $ticket['AssignedTo']['id'])); ?>

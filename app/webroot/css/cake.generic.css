@@ -910,5 +910,5 @@ td.subject {
     margin: 6px 0 0 15px;
 }
 
-.index tr.clickable { cursor: pointer; }
-.index tr.clickable:hover { background: #ebf1f4; }
+table tr.clickable { cursor: pointer; }
+table tr.clickable:hover { background: #ebf1f4; }

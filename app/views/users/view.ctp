@@ -53,7 +53,7 @@
 				$class = ' class="altrow"';
 			}
 		?>
-		<tr<?php echo $class;?>>
+		<tr data-href="<?php echo $this->Html->url(array("controller" => "tickets", "action" => "edit", $ticket['Ticket']['id'])); ?>"<?php echo $class;?>>
 			<td><?php echo $ticket['Ticket']['id'];?></td>
 			<td><?php echo $this->Html->link($ticket['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $ticket['Customer']['id'])); ?></td>
 			<td><?php echo $ticket['Ticket']['subject'];?></td>

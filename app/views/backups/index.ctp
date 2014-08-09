@@ -15,7 +15,7 @@
 			$class = ' class="altrow"';
 		}
 	?>
-		<tr<?php echo $class;?>>
+		<tr data-href="<?php echo $this->Html->url(array("action" => "view", $backup)); ?>"<?php echo $class;?>>
 			<td><?php echo $backup; ?></td>
 			<td><?php echo $this->Time->niceShort(substr($backup, 7, -4)); ?></td>
 			<td class="actions">

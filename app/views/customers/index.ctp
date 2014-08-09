@@ -16,7 +16,7 @@
 			$class = ' class="altrow"';
 		}
 	?>
-	<tr<?php echo $class;?>>
+	<tr data-href="<?php echo $this->Html->url(array("action" => "view", $customer['Customer']['id'])); ?>"<?php echo $class;?>>
 		<td><?php echo $customer['Customer']['id']; ?>&nbsp;</td>
 		<td><?php echo $this->Html->link($customer['Customer']['name'], array('action' => 'view', $customer['Customer']['id'])); ?>&nbsp;</td>
 		<td><?php echo $customer['Customer']['phone']; ?>&nbsp;</td>

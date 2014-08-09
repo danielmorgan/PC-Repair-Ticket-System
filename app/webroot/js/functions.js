@@ -58,15 +58,13 @@ $(document).ready(function() {
     /*
     * Links on <tr> elements
     */
-    $(function($) {
-        $('.index tr').addClass('clickable').click( function() {
-            window.location = $(this).find('.actions a').attr('href');
-        }).find('a').hover( function() {
-            $(this).parents('tr').unbind('click');
-        }, function() {
-            $(this).parents('tr').click( function() {
-                window.location = $(this).find('.actions a').attr('href');;
-            });
+    $('table tr[data-href]').addClass('clickable').click(function() {
+        window.location = $(this).attr('data-href');
+    }).find('a').hover(function() {
+        $(this).parents('tr').unbind('click');
+    }, function() {
+        $(this).parents('tr').click(function() {
+            window.location = $(this).attr('data-href');;
         });
     });
 
