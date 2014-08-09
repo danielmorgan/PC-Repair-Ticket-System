@@ -18,16 +18,27 @@ class TicketsController extends AppController {
 	}
 
 	function add() {
+        $assignedTos = $this->Ticket->User->find('list', array('fields' => array('username')));
+        $states = $this->Ticket->State->find('list');
+        $customers = $this->Ticket->Customer->find('list');
+        $this->set(compact('assignedTos', 'states', 'customers'));
+
 		if (!empty($this->data)) {
-		
+
 			if ($this->data['Customer']['id'] == '') {
 				$this->Ticket->Customer->create();
-				$this->Ticket->Customer->save($this->data);
-				$customer_id = $this->Ticket->Customer->getInsertID();
+                if ($this->Ticket->Customer->save($this->data)) {
+                    $this->Session->setFlash(__('New Customer created and assigned to ticket.', true));
+                    $customer_id = $this->Ticket->Customer->getInsertID();
+                } else {
+                    print_r($this->Model->validationErrors);
+                    $this->Session->setFlash(__('New Customer could not be created. Please, try again.', true));
+                    return;
+                }
 			} else {
 				$customer_id = $this->data['Customer']['id'];
 			}
-			
+
 			$this->Ticket->create();
 			$this->Ticket->set(array(
 				'user_id' => $this->Auth->user('id'),
@@ -35,33 +46,30 @@ class TicketsController extends AppController {
 				'customer_id' => $customer_id
 			));
 			if ($this->Ticket->save($this->data)) {
-				$this->Session->setFlash(__('The ticket has been saved', true));
+				$this->Session->setFlash(__('The ticket has been saved.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The ticket could not be saved. Please, try again.', true));
+                return;
 			}
 		}
-		$assignedTos = $this->Ticket->User->find('list', array('fields' => array('username')));
-		$states = $this->Ticket->State->find('list');
-		$customers = $this->Ticket->Customer->find('list');
-		$this->set(compact('assignedTos', 'states', 'customers'));
 	}
 
 	function edit($id = null) {
-		
+
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid ticket', true));
+			$this->Session->setFlash(__('Invalid ticket.', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-		
+
 			// Set closed date if ticket set to resolved
 			if ($this->data['Ticket']['state_id'] == 4) {
 				$this->Ticket->set(array(
 					'closed' => date('Y-m-d H:i:s')
 				));
 			}
-			
+
 			// Make a new change showing how the state has been modified
 			$findState = $this->Ticket->find('first', array(
 				'conditions' => array('Ticket.id' => $id),
@@ -78,10 +86,10 @@ class TicketsController extends AppController {
 				));
 				$this->Ticket->Change->save();
 			}
-			
-			
+
+
 			if ($this->Ticket->save($this->data)) {
-				$this->Session->setFlash(__('The ticket has been saved', true));
+				$this->Session->setFlash(__('The ticket has been saved.', true));
 				$this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->Session->setFlash(__('The ticket could not be saved. Please, try again.', true));
@@ -103,14 +111,14 @@ class TicketsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for ticket', true));
+			$this->Session->setFlash(__('Invalid id for ticket.', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Ticket->delete($id)) {
-			$this->Session->setFlash(__('Ticket deleted', true));
+			$this->Session->setFlash(__('Ticket deleted.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Ticket was not deleted', true));
+		$this->Session->setFlash(__('Ticket was not deleted.', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

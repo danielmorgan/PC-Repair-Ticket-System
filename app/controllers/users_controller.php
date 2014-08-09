@@ -2,10 +2,11 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-	
+
 	function beforeFilter() {
-		parent::beforeFilter(); 
-		//$this->Auth->allow(array('*'));
+		parent::beforeFilter();
+        // Uncomment for access without logging in. Handy for setting up users on a new installation.
+		// $this->Auth->allow(array('*'));
 	}
 
 	function index() {
@@ -20,7 +21,7 @@ class UsersController extends AppController {
 		}
 		$this->set('tickets', $this->User->Ticket->find('all',
 			array(
-				'conditions' => array('AssignedTo.id' => $id)			
+				'conditions' => array('AssignedTo.id' => $id)
 			)
 		));
 		$this->set('user', $this->User->read(null, $id));
@@ -68,14 +69,14 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	
+
 	function login() {
 	}
-	
+
 	function logout() {
 		$this->Session->setFlash('Good-Bye');
 		$this->redirect($this->Auth->logout());
 	}
-	
+
 }
 ?>

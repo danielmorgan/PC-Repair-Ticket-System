@@ -1,6 +1,7 @@
 tmp/*
 app/tmp/*
 app/backups/*
-app/config/database.php$
+app/config/core.php
+app/config/database.php
 app/config/bootstrap.local.php
 !empty

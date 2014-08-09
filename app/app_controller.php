@@ -8,10 +8,10 @@ class AppController extends Controller {
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'tickets', 'action' => 'index');
     }
-	
+
 	function beforeRender() {
 		$this->set('loggedin', $this->Auth->user());
 	}
-	
+
 }
 ?>

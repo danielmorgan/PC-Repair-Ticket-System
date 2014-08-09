@@ -1,3 +1,9 @@
+#PC Repair Ticket System
+
+Create, update and manage PC Repair jobs in a workshop environment. Allows you to keep track of what a customer dropped off, what tasks need to be completed, assign employees to tasks and keep track of customer payments.
+
+----------
+
 CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC. Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
 
 The Cake Software Foundation - promoting development related to CakePHP
