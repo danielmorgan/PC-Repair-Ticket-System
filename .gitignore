@@ -5,3 +5,4 @@ app/config/core.php
 app/config/database.php
 app/config/bootstrap.local.php
 !empty
+.idea

@@ -4,6 +4,7 @@
 		<legend><?php __('Add State'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('order');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

@@ -85,7 +85,7 @@ class Ticket extends AppModel {
 			'foreignKey' => 'state_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => 'order'
 		),
 		'Customer' => array(
 			'className' => 'Customer',

@@ -77,7 +77,7 @@
 body {
 	background: #003d4c;
 	color: #fff;
-	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+	font-family:helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
 }
@@ -616,7 +616,7 @@ a#logo {
 	float: left;
 	display: block;
 	color: #fff;
-	margin: 0 15px 0 0;
+	margin: 1px 15px 0 0;
 	text-decoration: none;
 	font-weight:normal;
     padding: 5px 15px;
@@ -658,6 +658,10 @@ a#logo {
 	background: #1B96BA;
 }
 
+.state.Away {
+	background: #7cb3ba;
+}
+
 .state.Overdue {
 	background: #D62522;
 	font-weight: normal;
@@ -668,7 +672,7 @@ a#logo {
 	opacity: 0.5;
 }
 
-.autocomplete-w1 { background:url('..img/shadow.png') no-repeat bottom right; position:absolute; top:0px; left:0px; margin:8px 0 0 6px; /* IE6 fix: */ _background:none; _margin:0; }
+.autocomplete-w1 { background:url('../img/shadow.png') no-repeat bottom right; position:absolute; top:0px; left:0px; margin:8px 0 0 6px; /* IE6 fix: */ _background:none; _margin:0; }
 .autocomplete { border:1px solid #999; background:#FFF; cursor:default; text-align:left; max-height:350px; overflow:auto; margin:-6px 6px 6px -6px; /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; color: #333; }
 .autocomplete .selected { background:#ddd; }
 .autocomplete div { padding:2px 5px; white-space:nowrap; }
@@ -774,6 +778,11 @@ td.subject {
 
 #user a {
 	color: #fff;
+	text-decoration: none;
+}
+
+#user a:hover {
+	text-decoration: underline;
 }
 
 #user li {
@@ -853,6 +862,7 @@ td.subject {
 
 .change .content {
 	padding: 1em;
+	overflow: auto;
 }
 
 

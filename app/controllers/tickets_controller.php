@@ -8,7 +8,7 @@ class TicketsController extends AppController {
 		$this->paginate = array(
 			'Ticket' => array(
 				'order' => array(
-					'Ticket.state_id' => 'asc',
+					'State.order' => 'asc',
 					'Ticket.due' => 'desc',
 					'Ticket.created' => 'asc'
 				)
